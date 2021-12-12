@@ -17,4 +17,23 @@ public class PeliculaImplement implements PeliculaService{
 	public List<Pelicula> getAll() {
 		return peliculaRepository.findAll();
 	}
+	
+	@Override
+	public Pelicula getId(Long id) {
+		return peliculaRepository.findById(id).orElse(null);
+	}
+	
+	@Override
+	public void delete(Long id) {
+		peliculaRepository.deleteById(id);		
+	}
+	@Override
+	public Pelicula update(Pelicula pelicula) {
+		return peliculaRepository.save(pelicula);	
+	}
+
+	@Override
+	public Pelicula add(Pelicula pelicula) {
+		return peliculaRepository.save(pelicula);
+	}
 }
